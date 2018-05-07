@@ -1,7 +1,7 @@
 # Hash Maps
 A data structure for efficiently and dynamically storing items of key->value pairs in memory. It employs the use of a hash function to decide at what location to store items. Accomodation is made for collision, a scenario in which the hash funciton decides to store an item in a location already taken up by another item. The average cost per operation in a hash table is entirely divorced from the number of items already stored in the hash table, thus making it a good data structure for storing lots of items.
 
-### Implementation #1: Linear Probing
+## Implementation #1: Linear Probing
 This implementation includes the following files:
 ```
 headers/HashEntryLinearProbing.h
@@ -22,14 +22,14 @@ You see it got inserted at the first index. Now let's add another entry.
 |{"Ben", "123 Fake St"}|{"Jeffrey", "222 NotReal Ave"}| | | |
 ```
 When entering Jefferey's information, the algorithm first looked at the first index in the table and saw that it was already taken, so it moved on to the next index.
-##### Handling Duplicates
+### Handling Duplicates
 Depending on the implementation, a hash map may or may not allow for multiple values on duplicate keys. In this case it does. It treats duplicate values no differently than any other value. It'll just insert it at the next available index. So if we try to enter another address for Ben we'll get.
 ```
 |{"Ben", "123 Fake St"}|{"Jeffrey", "222 NotReal Ave"}|{"Ben", "333 Another Ln"}| | |
 ```
 This makes sense in this case because there could be two different people both named Ben who live in different places.
 
-### Implementation #1: Separate Chaining
+## Implementation #1: Separate Chaining
 This implementation includes the following files:
 ```
 headers/HashEntrySeparateChaining.h
@@ -55,7 +55,7 @@ It gets inserted at the third index because "testkeytwo" has an ASCII value of 1
       |{"aaaaa", "aaaaa"}              |
  ```
  You can see that the entry with the key "aaaaa" got entered into the second index, because "aaaaa" has an ASCII value of 582, which yields 2 when divided by 5. But since there was already an entry at index 2, it created a new pointer to the next entry, which I've denoted as aaaaa*, and added the aaaaa entry to the linked list.
-##### Handling Duplicates
+### Handling Duplicates
 Depending on the implementation, a hash map may or may not allow for multiple values on duplicate keys. In this case it does not, but if it did it'd treats duplicate values no differently than any other value. It'd just insert it at the appropriate index, which would necessarily require creating a new entry in a linked list since it must have the same ASCII value as the duplicate key. So if we try to enter another address for "testkeytwo" we'll get.
 ```
     | |{"testkey", "testvalue", aaaaa*}|{"testkeytwo", "testvalue", testkeytwo*}| | |
