@@ -37,7 +37,7 @@ headers/HashMapSeparateChaining.h
 implementation/HashEntrySeparateChaining.cpp
 implementation/HashMapSeparateChaining.cpp
 ```
-It utilizes separate chaining to accomodate collision. In separate chaining, values are stored based on a hash function, in this case it's based on the ascii value of the key string modded by the table size. When it's found that a value already exists in the desired location, the algorithm creates a second entry at that same index. This is possible because each entry holds a HashEntrySeparateChaining* pointer value within it that defaults to null. To put another entry at that index you write that pointer to point to the value of your new entry. This essentially creates a linked list at every index of the table. For example, imagine you have an empty table of size 5.
+It utilizes separate chaining to accomodate collision. In separate chaining, values are stored based on a hash function, in this case it's based on the ASCII value of the key string modded by the table size. When it's found that a value already exists in the desired location, the algorithm creates a second entry at that same index. This is possible because each entry holds a HashEntrySeparateChaining* pointer value within it that defaults to null. To put another entry at that index you write that pointer to point to the value of your new entry. This essentially creates a linked list at every index of the table. For example, imagine you have an empty table of size 5.
 ```
 | | | | | |
 ```
