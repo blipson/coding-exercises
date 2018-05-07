@@ -56,7 +56,7 @@ It gets inserted at the third index because "testkeytwo" has an ASCII value of 1
  ```
  You can see that the entry with the key "aaaaa" got entered into the second index, because "aaaaa" has an ASCII value of 582, which yields 2 when divided by 5. But since there was already an entry at index 2, it created a new pointer to the next entry, which I've denoted as aaaaa*, and added the aaaaa entry to the linked list.
 ### Handling Duplicates
-Depending on the implementation, a hash map may or may not allow for multiple values on duplicate keys. In this case it does not, but if it did it'd treats duplicate values no differently than any other value. It'd just insert it at the appropriate index, which would necessarily require creating a new entry in a linked list since it must have the same ASCII value as the duplicate key. So if we try to enter another address for "testkeytwo" we'll get.
+Depending on the implementation, a hash map may or may not allow for multiple values on duplicate keys. In this case it does not, but if it did it'd treat duplicate values no differently than any other value. It'd just insert it at the appropriate index, which would necessarily require creating a new entry in a linked list since it must have the same ASCII value as the duplicate key. So if we try to enter another address for "testkeytwo" we'll get.
 ```
     | |{"testkey", "testvalue", aaaaa*}|{"testkeytwo", "testvalue", testkeytwo*}| | |
       |{"aaaaa", "aaaaa"}              |{"testkeytwo", "anothertestvalue"}      |
