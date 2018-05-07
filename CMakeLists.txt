@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.10)
+project(interview_prep)
+
+set(CMAKE_CXX_STANDARD 17)
+
+add_executable(interview_prep main.cpp)
+add_executable(hashmap hashmap/hashmapmain.cpp hashmap/implementation/HashEntryLinearProbing.cpp hashmap/headers/HashEntryLinearProbing.h hashmap/implementation/HashMapLinearProbing.cpp hashmap/headers/HashMapLinearProbing.h hashmap/implementation/HashKeyNotFoundException.cpp hashmap/headers/HashKeyNotFoundException.h hashmap/implementation/HashMapSeparateChaining.cpp hashmap/headers/HashMapSeparateChaining.h hashmap/implementation/HashKeyDuplicateException.cpp hashmap/headers/HashKeyDuplicateException.h hashmap/implementation/HashEntrySeparateChaining.cpp hashmap/headers/HashEntrySeparateChaining.h)
