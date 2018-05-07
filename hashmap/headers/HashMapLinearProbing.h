@@ -8,7 +8,7 @@
 class HashMapLinearProbing
 {
 private:
-    static const int tableSize = 128;
+    static const int tableSize = 10;
     HashEntryLinearProbing** table;
 
 public:

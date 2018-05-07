@@ -34,7 +34,7 @@ public:
     }
 };
 
-void testHashMapLinear()
+void testHashMapLinearProbing()
 {
     Student students[5] = {
             Student("Jeffrey", "111 Fake St", "3.5"),
@@ -154,7 +154,8 @@ void testHashMapSeparateChaining()
 
 int main()
 {
-    testHashMapLinear();
+    testHashMapLinearProbing();
     testHashMapSeparateChaining();
+
     return 0;
 }
