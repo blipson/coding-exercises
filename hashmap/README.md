@@ -45,7 +45,7 @@ Then you insert a key->value pair. In this case we'll just use some test values.
 ```
 | |{"testkey", "testvalue"}| | | |
 ```
-You see it got inserted at the second index. This is because our hash function took the ASCII value of "testkey" (which is 777) and modded it by the table size (which is 5), thus yielding the reamainder value 2. Now let's add another entry.
+You see it got inserted at the second index. This is because our hash function took the ASCII value of "testkey" (which is 777) and modded it by the table size (which is 5), thus yielding the remainder value 2. Now let's add another entry.
 ```
 | |{"testkey", "testvalue"}|{"testkeytwo", "testvalue"}| | |
 ```
