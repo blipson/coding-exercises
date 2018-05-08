@@ -10,7 +10,7 @@ ArrayListInvalidEntryException::ArrayListInvalidEntryException(int value)
     value = value;
 }
 
-const char* ArrayListInvalidEntryException::what() const
+const char* ArrayListInvalidEntryException::what() const noexcept
 {
     std::string msg = "Array list value invalid: \"";
     msg.append(std::to_string(this->value)).append("\"");

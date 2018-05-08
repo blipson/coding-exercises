@@ -13,6 +13,7 @@ private:
 
 public:
     HashMapLinearProbing();
+
     ~HashMapLinearProbing();
 
     HashEntryLinearProbing get(std::string key);

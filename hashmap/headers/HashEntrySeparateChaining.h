@@ -17,6 +17,7 @@ public:
     std::string getValue();
 
     HashEntrySeparateChaining* getNext();
+
     void setNext(HashEntrySeparateChaining* next);
 
     HashEntrySeparateChaining(std::string key, std::string value);

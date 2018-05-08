@@ -109,7 +109,8 @@ void HashMapSeparateChaining::printTable()
             HashEntrySeparateChaining* current = hashTable[i];
             while (current->getNext() != nullptr)
             {
-                std::cout << current->getNext()->getKey().append(", ").append(current->getNext()->getValue()) << std::endl;
+                std::cout << current->getNext()->getKey().append(", ").append(current->getNext()->getValue())
+                          << std::endl;
                 current = current->getNext();
             }
         }

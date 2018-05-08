@@ -7,7 +7,9 @@
 struct ArrayListIndexOutOfBoundsException : public std::exception
 {
     int index;
+
     explicit ArrayListIndexOutOfBoundsException(int index);
+
     const char* what() const noexcept override;
 };
 

@@ -51,8 +51,7 @@ void ArrayList::add(int index, int e)
     if (index > size || index <= 0)
     {
         throw ArrayListIndexOutOfBoundsException(index);
-    }
-    else if (index == size + 1)
+    } else if (index == size + 1)
     {
         if (size >= length)
         {
@@ -60,14 +59,13 @@ void ArrayList::add(int index, int e)
         }
         data[index] = e;
         size++;
-    }
-    else
+    } else
     {
         if (size >= length)
         {
             remake(length + (length / 2));
         }
-        int buffer[size-index];
+        int buffer[size - index];
         int j = 0;
         for (int i = index; i < size; i++)
         {
@@ -90,16 +88,14 @@ void ArrayList::remake(int newLength)
     if (newLength == 0)
     {
         auto* buffer = new int[1];
-        delete [] data;
+        delete[] data;
         data = buffer;
         length = 1;
         length = 1;
-    }
-    else if (newLength < 0)
+    } else if (newLength < 0)
     {
         throw ArrayListIndexOutOfBoundsException(newLength);
-    }
-    else
+    } else
     {
         auto* buffer = new int[newLength];
         if (newLength > length)
@@ -108,15 +104,14 @@ void ArrayList::remake(int newLength)
             {
                 buffer[i] = data[i];
             }
-        }
-        else
+        } else
         {
             for (int i = 0; i < newLength; i++)
             {
                 buffer[i] = data[i];
             }
         }
-        delete [] data;
+        delete[] data;
         data = buffer;
         length = newLength;
     }
@@ -142,11 +137,10 @@ bool ArrayList::contains(int e)
 
 int ArrayList::get(int index)
 {
-    if (index > size-1 || index < 0)
+    if (index > size - 1 || index < 0)
     {
         throw ArrayListIndexOutOfBoundsException(index);
-    }
-    else
+    } else
     {
         return data[index];
     }
@@ -171,8 +165,7 @@ bool ArrayList::isEmpty()
     if (size == 0)
     {
         return true;
-    }
-    else
+    } else
     {
         return false;
     }
@@ -180,19 +173,19 @@ bool ArrayList::isEmpty()
 
 int ArrayList::remove(int index)
 {
-    if (index > length-1 || index < 0)
+    if (index > length - 1 || index < 0)
     {
         throw ArrayListIndexOutOfBoundsException(index);
     }
     int removed = data[index];
     for (int i = index; i < size; i++)
     {
-        data[i] = data[i+1];
+        data[i] = data[i + 1];
     }
     size--;
-    if (size <= length/2)
+    if (size <= length / 2)
     {
-        remake(length/2);
+        remake(length / 2);
     }
     return removed;
 }
@@ -204,11 +197,10 @@ bool ArrayList::removeFirstInstance(int e)
     {
         i++;
     }
-    if (i >= size-1)
+    if (i >= size - 1)
     {
         return false;
-    }
-    else
+    } else
     {
         remove(i);
         return true;
@@ -217,7 +209,7 @@ bool ArrayList::removeFirstInstance(int e)
 
 void ArrayList::removeRange(int fromIndex, int toIndex)
 {
-    if (fromIndex >= 0 && fromIndex <= length-1 && toIndex >= 0 && toIndex <= length - 1 && toIndex >= fromIndex)
+    if (fromIndex >= 0 && fromIndex <= length - 1 && toIndex >= 0 && toIndex <= length - 1 && toIndex >= fromIndex)
     {
         for (int i = fromIndex; i <= toIndex; i++)
         {

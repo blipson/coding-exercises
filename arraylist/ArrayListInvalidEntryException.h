@@ -7,7 +7,9 @@
 struct ArrayListInvalidEntryException : public std::exception
 {
     int value;
+
     explicit ArrayListInvalidEntryException(int value);
+
     const char* what() const noexcept override;
 
 };
