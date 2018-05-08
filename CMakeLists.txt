@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
-project(interview_prep)
+project(coding_exercises)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(interview_prep main.cpp)
-add_executable(hashmap hashmap/hashmapmain.cpp hashmap/implementation/HashEntryLinearProbing.cpp hashmap/headers/HashEntryLinearProbing.h hashmap/implementation/HashMapLinearProbing.cpp hashmap/headers/HashMapLinearProbing.h hashmap/implementation/HashKeyNotFoundException.cpp hashmap/headers/HashKeyNotFoundException.h hashmap/implementation/HashMapSeparateChaining.cpp hashmap/headers/HashMapSeparateChaining.h hashmap/implementation/HashKeyDuplicateException.cpp hashmap/headers/HashKeyDuplicateException.h hashmap/implementation/HashEntrySeparateChaining.cpp hashmap/headers/HashEntrySeparateChaining.h)
+add_executable(coding_exercises main.cpp arraylist/ArrayList.cpp arraylist/ArrayList.h arraylist/arraylistmain.cpp)
+add_executable(hashmap hashmap/hashmapmain.cpp hashmap/implementation/HashEntryLinearProbing.cpp hashmap/headers/HashEntryLinearProbing.h hashmap/implementation/HashMapLinearProbing.cpp hashmap/headers/HashMapLinearProbing.h hashmap/implementation/HashKeyElementNotFoundException.cpp hashmap/headers/HashKeyElementNotFoundException.h hashmap/implementation/HashMapSeparateChaining.cpp hashmap/headers/HashMapSeparateChaining.h hashmap/implementation/HashKeyDuplicateElementException.cpp hashmap/headers/HashKeyDuplicateElementException.h hashmap/implementation/HashEntrySeparateChaining.cpp hashmap/headers/HashEntrySeparateChaining.h)
+add_executable(arraylist arraylist/arraylistmain.cpp arraylist/ArrayList.cpp arraylist/ArrayList.h arraylist/ArrayListIndexOutOfBoundsException.cpp arraylist/ArrayListIndexOutOfBoundsException.h)

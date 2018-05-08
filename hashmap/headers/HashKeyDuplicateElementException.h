@@ -5,11 +5,11 @@
 #include <exception>
 #include <string>
 
-struct HashKeyDuplicateException : public std::exception
+struct HashKeyDuplicateElementException : public std::exception
 {
     std::string key;
 
-    explicit HashKeyDuplicateException(std::string key);
+    explicit HashKeyDuplicateElementException(std::string key);
 
     const char* what() const noexcept override;
 };

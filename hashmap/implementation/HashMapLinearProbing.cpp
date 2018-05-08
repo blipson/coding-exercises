@@ -1,5 +1,5 @@
 #include "../headers/HashMapLinearProbing.h"
-#include "../headers/HashKeyNotFoundException.h"
+#include "../headers/HashKeyElementNotFoundException.h"
 #include <iostream>
 
 HashMapLinearProbing::HashMapLinearProbing()

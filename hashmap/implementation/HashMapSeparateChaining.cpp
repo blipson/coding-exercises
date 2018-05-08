@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../headers/HashMapSeparateChaining.h"
-#include "../headers/HashKeyDuplicateException.h"
-#include "../headers/HashKeyNotFoundException.h"
+#include "../headers/HashKeyDuplicateElementException.h"
+#include "../headers/HashKeyElementNotFoundException.h"
 
 HashMapSeparateChaining::HashMapSeparateChaining()
 {
@@ -38,13 +38,13 @@ void HashMapSeparateChaining::put(std::string key, std::string value)
         auto* newItem = new HashEntrySeparateChaining(key, value);
         if (currentItem->getKey() == key)
         {
-            throw HashKeyDuplicateException(key);
+            throw HashKeyDuplicateElementException(key);
         }
         while (currentItem->getNext() != nullptr)
         {
             if (currentItem->getNext()->getKey() == key)
             {
-                throw HashKeyDuplicateException(key);
+                throw HashKeyDuplicateElementException(key);
             }
             currentItem = currentItem->getNext();
         }

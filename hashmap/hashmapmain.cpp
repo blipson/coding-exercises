@@ -1,8 +1,8 @@
 #include <iostream>
 #include "headers/HashMapLinearProbing.h"
-#include "headers/HashKeyNotFoundException.h"
+#include "headers/HashKeyElementNotFoundException.h"
 #include "headers/HashMapSeparateChaining.h"
-#include "headers/HashKeyDuplicateException.h"
+#include "headers/HashKeyDuplicateElementException.h"
 
 class Student
 {
@@ -43,7 +43,7 @@ void testHashMapLinearProbing()
             Student("Bethany", "444 Made Up Cir", "2.6"),
             Student("Teddy", "555 Fake St", "3.2"),
     };
-    HashMapLinearProbing hashMap = HashMapLinearProbing();
+    HashMapLinearProbing hashMap;
 
     for (Student &student : students)
     {
@@ -109,7 +109,7 @@ void testHashMapSeparateChaining()
             Student("Bethany", "444 Made Up Cir", "2.6"),
             Student("Teddy", "555 Fake St", "3.2"),
     };
-    HashMapSeparateChaining hashMap = HashMapSeparateChaining();
+    HashMapSeparateChaining hashMap;
 
     for (Student &student : students)
     {
@@ -117,9 +117,9 @@ void testHashMapSeparateChaining()
         {
             hashMap.put(student.getName(), student.getAddress());
         }
-        catch (HashKeyDuplicateException &e)
+        catch (HashKeyDuplicateElementException &e)
         {
-            std::cout << "HashKeyDuplicateException caught" << std::endl;
+            std::cout << "HashKeyDuplicateElementException caught" << std::endl;
             std::cout << e.what() << std::endl;
         }
     }
@@ -127,9 +127,9 @@ void testHashMapSeparateChaining()
     {
         hashMap.put("Teddy", "test");
     }
-    catch (HashKeyDuplicateException &e)
+    catch (HashKeyDuplicateElementException &e)
     {
-        std::cout << "HashKeyDuplicateException caught" << std::endl;
+        std::cout << "HashKeyDuplicateElementException caught" << std::endl;
         std::cout << e.what() << std::endl;
     }
     try
