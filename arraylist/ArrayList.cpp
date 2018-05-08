@@ -1,6 +1,7 @@
 #include <iostream>
 #include "ArrayList.h"
 #include "ArrayListIndexOutOfBoundsException.h"
+#include "ArrayListInvalidEntryException.h"
 
 ArrayList::ArrayList(int length)
 {
@@ -20,6 +21,10 @@ ArrayList::~ArrayList()
 
 bool ArrayList::add(int e)
 {
+    if (e == 0)
+    {
+        throw ArrayListInvalidEntryException(e);
+    }
     int i = 0;
     while (data[i] != 0)
     {
@@ -39,6 +44,10 @@ bool ArrayList::add(int e)
 
 void ArrayList::add(int index, int e)
 {
+    if (e == 0)
+    {
+        throw ArrayListInvalidEntryException(e);
+    }
     if (index > size || index <= 0)
     {
         throw ArrayListIndexOutOfBoundsException(index);
@@ -81,6 +90,9 @@ void ArrayList::remake(int newLength)
     if (newLength == 0)
     {
         auto* buffer = new int[1];
+        delete [] data;
+        data = buffer;
+        length = 1;
         length = 1;
     }
     else if (newLength < 0)
