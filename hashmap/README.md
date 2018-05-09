@@ -1,5 +1,5 @@
 # Hash Maps
-A data structure for efficiently and dynamically storing items of key->value pairs in memory. It employs the use of a hash function to decide at what location to store items. Accomodation is made for collision, a scenario in which the hash funciton decides to store an item in a location already taken up by another item. The average cost per operation in a hash table is entirely divorced from the number of items already stored in the hash table, thus making it a good data structure for storing lots of items.
+A data structure for efficiently and dynamically storing items of key->value pairs in memory. It employs the use of a hash function to decide at what location to store items. Accomodation is made for collision, a scenario in which the hash function decides to store an item in a location already taken up by another item. The average cost per operation in a hash table is entirely divorced from the number of items already stored in the hash table, thus making it a good data structure for storing lots of items.
 
 ## Implementation #1: Linear Probing
 This implementation includes the following files:
@@ -29,7 +29,7 @@ Depending on the implementation, a hash map may or may not allow for multiple va
 ```
 This makes sense in this case because there could be two different people both named Ben who live in different places.
 
-## Implementation #1: Separate Chaining
+## Implementation #2: Separate Chaining
 This implementation includes the following files:
 ```
 headers/HashEntrySeparateChaining.h
@@ -56,7 +56,7 @@ It gets inserted at the third index because "testkeytwo" has an ASCII value of 1
  ```
  You can see that the entry with the key "aaaaa" got entered into the second index, because "aaaaa" has an ASCII value of 582, which yields 2 when divided by 5. But since there was already an entry at index 2, it created a new pointer to the next entry, which I've denoted as aaaaa*, and added the aaaaa entry to the linked list.
 ### Handling Duplicates
-Depending on the implementation, a hash map may or may not allow for multiple values on duplicate keys. In this case it does not, but if it did it'd treat duplicate values no differently than any other value. It'd just insert it at the appropriate index, which would necessarily require creating a new entry in a linked list since it must have the same ASCII value as the duplicate key. So if we try to enter another address for "testkeytwo" we'll get.
+Depending on the implementation, a hash map may or may not allow for multiple values on duplicate keys. In this case it does not, but if it did it'd treat duplicate values no differently than any other value. It'd just insert it at the appropriate index, which would necessarily require creating a new entry in a linked list since it must have the same ASCII value as the duplicate key. So if we try to enter another value for "testkeytwo" we'll get.
 ```
     | |{"testkey", "testvalue", aaaaa*}|{"testkeytwo", "testvalue", testkeytwo*}| | |
       |{"aaaaa", "aaaaa"}              |{"testkeytwo", "anothertestvalue"}      |
