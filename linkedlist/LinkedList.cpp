@@ -1,5 +1,6 @@
 #include <iostream>
 #include "LinkedList.h"
+#include "LinkedListOutOfBoundsException.h"
 
 LinkedList::LinkedList()
 {
@@ -57,52 +58,38 @@ bool LinkedList::add(int e)
 
 void LinkedList::add(int index, int e)
 {
-    int i = 0;
-    Node* current = nullptr;
-    while (i <= index)
+    if (index > size-1)
     {
-        if (i == 0)
-        {
-            current = this->head;
-        }
-        else
-        {
-            current = current->next;
-        }
-        i++;
+        throw LinkedListOutOfBoundsException(index);
     }
-    Node* atIndex = current;
-
-    int j = 0;
-    int temp;
-    int temp2;
-    bool end = false;
-    while (!end)
+    int i = 0;
+    auto* current = new Node();
+    if (this->head != nullptr)
     {
-        if (j == 0)
+        while (i < index)
         {
-            temp = current->next->data;
-            current->next->data = current->data;
-            current = current->next;
-        }
-        else
-        {
-            if (current->next == nullptr)
+            if (i == 0)
             {
-                temp2 = temp;
-                end = true;
-            }
-            else
+                current = this->head;
+            } else
             {
-                temp2 = current->next->data;
-                current->next->data = temp;
-                temp = temp2;
                 current = current->next;
             }
+            i++;
         }
-        j++;
     }
-    atIndex->data = e;
-    current->next = new Node();
-    current->next->data = temp2;
+    auto* insert = new Node();
+    insert->data = e;
+
+    if (current->next != nullptr)
+    {
+        Node* prevIndex = current;
+        insert->next = prevIndex->next;
+        prevIndex->next = insert;
+    }
+    else
+    {
+        this->head = insert;
+    }
+    size++;
 }
