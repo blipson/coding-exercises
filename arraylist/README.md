@@ -1,5 +1,5 @@
 # Array Lists
-A data structure that serves as a dynamic array that can grow or shrink as needed.
+A content structure that serves as a dynamic array that can grow or shrink as needed.
 
 ## Implementation
 This implementation includes the following files:
